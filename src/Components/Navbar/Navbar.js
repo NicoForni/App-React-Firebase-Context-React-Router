@@ -4,7 +4,7 @@ const Navbar = () => {
     return(
         <nav>
         <ul className="nav-menu">
-            <img className="logo" src="./images/logo-cine.svg" alt="" width="" height=""></img>
+            <img className="logo" src={"./images/logo-cine.svg"} alt={""} width="" height=""></img>
             <div className="texto-de-menu">
               <li><a href="#">Peliculas</a></li>
               <li><a href="#">Series</a></li>
@@ -13,9 +13,9 @@ const Navbar = () => {
             </div>
             <input className="buscadorcito" id="buscador" type="text" placeholder="Escriba un film"></input>
             <button className="botoncito" id="boton" type="submit">Buscar...</button>
-            {/* <div class="carrito-contenedor">
-                <a href="#modal" rel="modal:open"></a><img src="./images/carrito.png" alt="Carrito Icono"></img>
-            </div>              */}
+            <div class="carrito-contenedor">
+                <a href="#modal" rel="modal:open"><img src={"./images/carrito.png"} alt={"Carrito Icono"}></img></a>
+            </div>             
         </ul>
         </nav>
     )
