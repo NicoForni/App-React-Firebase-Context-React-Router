@@ -1,4 +1,6 @@
 import "./Navbar.css"
+import CartWidget from "../CartWidget/Cartwidget"
+
 
 const Navbar = () => {
     return(
@@ -13,9 +15,7 @@ const Navbar = () => {
             </div>
             <input className="buscadorcito" id="buscador" type="text" placeholder="Escriba un film"></input>
             <button className="botoncito" id="boton" type="submit">Buscar...</button>
-            <div class="carrito-contenedor">
-                <a href="#modal" rel="modal:open"><img src={"./images/carrito.png"} alt={"Carrito Icono"}></img></a>
-            </div>             
+            <CartWidget/>
         </ul>
         </nav>
     )

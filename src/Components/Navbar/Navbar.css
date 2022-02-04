@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-  }
-
 /*HEADER*/
 
 header {
@@ -60,22 +55,6 @@ header {
     cursor: pointer;
 }
 
-/*CONTENEDOR CARRITO*/
-
-.contenedor-de-carrito {
-  text-align: center;
-}
-
-.carrito-contenedor {
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 22px;
-}
-
-.carrito-contenedor img {
-  height: 44px;
-}
-
   /*==========EMPIEZA ADAPTACION RESPONSIVE========*/
 
 /*MOBILE HEADER*/
@@ -127,23 +106,4 @@ header {
  }
 }
 
-/*CONTENEDOR CARRITO*/
 
-
-
-@media (max-width: 960px) {
-  #contenedor-columna {
-    display: flex;
-    justify-content: space-around;
-    padding: 3px 2px;
-  }
-}
-
-@media (max-width: 960px) {
-  .carrito-contenedor {
-    display: inline;
-    position: relative;
-    top: 15px;
-    padding: 2%;
-  }
-}
