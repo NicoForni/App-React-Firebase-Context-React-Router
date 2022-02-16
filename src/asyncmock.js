@@ -19,3 +19,11 @@ export const getProducts = () => {
     });
 };
 
+export const getItem = () => {
+    return new Promise ((resolve) => {
+        setTimeout(() => {
+            resolve(products[0]);
+        },2000);
+    });
+}
+

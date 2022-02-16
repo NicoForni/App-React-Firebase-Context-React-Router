@@ -9,7 +9,7 @@ const Item = ({movie}) => {
                 <img className="ajuste-de-imagen" src={movie.img} alt={movie.name} />
                 <p className="title">{movie.name}</p>
                 <br/>
-                <p className="price">${movie.price}</p>
+                <p className="price">${movie.price}</p>            
             </div>
       
     )
