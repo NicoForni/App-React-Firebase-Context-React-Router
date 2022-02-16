@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
     
     return(
         <>
-        <ItemDetail products={products} />
+        <ItemDetail movie={products} />
         </>
     ) 
 }

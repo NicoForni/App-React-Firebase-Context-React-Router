@@ -4,7 +4,7 @@ import "./ItemDetail.css";
 const ItemDetail = ({movie}) => {
     
     return(      
-        <div className ="contenedor-columna-detail">
+        <div className ="contenedor-de-producto">
             <img className="ajuste-de-imagen" src={movie.img} alt={movie.name} />
             <p className="title">{movie.name}</p>
             <br/>
