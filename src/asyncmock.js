@@ -1,5 +1,5 @@
 const products = [
-    {id:1, name:"Blade", price:500, category: "pelicula", img:"https://es.web.img2.acsta.net/medias/nmedia/18/78/58/59/20134443.jpg"},
+    {id:1, name:"Blade", price:500, category: "pelicula", description: "En un mundo en guerra, en el que cohabitan hombres y vampiros, el caso de Blade es extraordinario: es un vampiro que no se alimenta de sangre humana y que, además, pretende acabar con la raza de seres superiores que mordieron a su madre cuando estaba embarazada." ,img:"https://es.web.img2.acsta.net/medias/nmedia/18/78/58/59/20134443.jpg"},
     {id:2, name:"La momia", price:300, category:"pelicula", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpAKRq-CI-5FDbBvMPt9VFYWRTBVNOZ5M-McFl5uV_URjrKf1XcBvIKfVqeRFXzVO16Yo&usqp=CAU"},
     {id:3 , name:"The punisher" , price:400 , category:"pelicula" , img:"https://es.web.img3.acsta.net/pictures/14/03/24/12/51/217527.jpg"},
     {id:4 , name:"Bagger Vance" , price:600 , category:"pelicula" , img:"https://es.web.img3.acsta.net/medias/nmedia/18/86/25/46/20199360.jpg" },
