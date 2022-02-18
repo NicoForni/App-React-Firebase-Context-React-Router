@@ -19,10 +19,11 @@ export const getProducts = () => {
     });
 };
 
-export const getItem = () => {
+export const getItem = (id) => {
     return new Promise ((resolve) => {
+        const prod = products.find(p => p.id === parseInt(id))
         setTimeout(() => {
-            resolve(products[0]);
+            resolve(prod);
         },2000);
     });
 }
