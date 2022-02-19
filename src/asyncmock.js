@@ -28,3 +28,12 @@ export const getItem = (id) => {
     });
 }
 
+export const getByCategory = (idCategory) => {
+    if (!idCategory) return getProducts();
+    return new Promise ((resolve) => {
+        const productsFiltered = products.filter(item => item.category === idCategory)
+        setTimeout(() => {
+            resolve(productsFiltered);
+        },2000);
+    });
+}

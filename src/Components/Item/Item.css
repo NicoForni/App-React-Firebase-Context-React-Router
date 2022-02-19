@@ -39,4 +39,12 @@
 .price{
     color: white;
 }
+
+.button-style{
+    padding: 6px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(43 76 96);
+    border-radius: 30px;
+    cursor: pointer;
+}
   

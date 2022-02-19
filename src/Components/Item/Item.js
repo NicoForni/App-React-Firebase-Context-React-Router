@@ -13,7 +13,7 @@ const Item = ({movie}) => {
                 <p className="price">${movie.price}</p>  
                 <br/>
                 <p className="ver-detalle">
-                    <Link to={`/detail/${movie.id}`}>Ver detalle</Link>
+                    <Link to={`/detail/${movie.id}`}> <button className="button-style">Ver detalle</button></Link>
                 </p>
             </div>
       

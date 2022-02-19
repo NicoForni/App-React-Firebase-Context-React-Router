@@ -1,18 +1,22 @@
 import "./itemlistcontainer.css";
 import Itemcount from "../Itemcount/Itemcount";
 import React, { useEffect, useState } from "react";
-import { getProducts } from "../../asyncmock";
+import { getByCategory } from "../../asyncmock";
 import Itemlist from "../Itemlist/Itemlist";
+import { useParams } from "react-router-dom";
+
 
 const Itemlistcontainer = ({greeting}) => {
 
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);  
+    const {categoryId} = useParams();      
 
     useEffect(() =>{
-        getProducts().then(products => {            
-            setProducts(products)
-        })
-    }, [])
+        getByCategory(categoryId).then(products => {            
+            setProducts(products)            
+        })        
+    }, [categoryId])
+
 
     const onAdd = (count) => {        
         count > 0 ? console.log(`Agrego ${count} items al carrito`) : console.log(`No agrego nada!`);

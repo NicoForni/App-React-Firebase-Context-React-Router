@@ -12,16 +12,13 @@ const Navbar = () => {
                     <img className="logo" src={"./images/logo-cine.svg"} alt={"logo"} width="" height=""></img>
                 </NavLink>
                 <div className="texto-de-menu">
-                <NavLink to={"/category/peliculas"}
-                    className={({isActive})=>isActive ? "active-option" : null}>
+                <NavLink to={"/category/pelicula"} className={({isActive})=>isActive ? "active-option" : null}>
                     <li>Peliculas</li>
                 </NavLink>
-                <NavLink to={"/category/series"}
-                    className={({isActive})=>isActive ? "active-option" : null}>
+                <NavLink to={"/category/serie"}className={({isActive})=>isActive ? "active-option" : null}>
                     <li>Series</li>
                 </NavLink>
-                <NavLink to={"/category/documentales"}
-                    className={({isActive})=>isActive ? "active-option" : null}>
+                <NavLink to={"/category/documental"}className={({isActive})=>isActive ? "active-option" : null}>
                     <li>Documentales</li>
                 </NavLink>
                 </div>

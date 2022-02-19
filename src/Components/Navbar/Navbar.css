@@ -8,7 +8,7 @@ header {
 .logo {
     width: 80px;
     height: 80px;
-    padding: 30px;
+    padding: 22px 30px;
   }
   
 .nav-menu {
@@ -22,37 +22,76 @@ header {
   
 .texto-de-menu {
     display: flex;
-    margin: 30px;
+    margin: 34px 30px;
     padding: 30px auto;
     font-size: 20px;
     font-weight: 700;
     color: white;
   }
 
-  .texto-de-menu {
-    display: flex;
-    margin: 30px;
-    padding: 30px auto;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;    
-  }
 
   .active-option{
-    background-color: red;
+    background-color: #0d3c58;
+    border-color: white;
+    border-radius: 48px;    
+    text-decoration-color: white;
   }
   
 .texto-de-menu li {
-    padding: 30px;
+    padding: 15px 30px;
     text-decoration: none;
     list-style: none;
     color: white;
-}
+    border-radius: 48px;
+  }
+
+  .texto-de-menu li:hover{    
+    transition: 1.0s ease;    
+    text-decoration: underline;
+  }
 
 .texto-de-menu li a {
-    text-decoration: none;
     color: white;
   }
+
+
+  /* a {
+    display: inline-block;
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    padding: 0 4px;
+    }
+    a:before,
+    a:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    transform: scale(0);
+    transition: 0.5s;
+    }
+    a:before {
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    transform-origin: 0 100%;
+    }
+    a:after {
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    transform-origin: 100% 0%;
+    }
+    a:hover:after,
+    a:hover:before {
+    transform: scale(1);
+    } */
+
+
+
+
 
  /*BUSCADOR*/
   
