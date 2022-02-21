@@ -1,3 +1,5 @@
+Este proyecto lo elijo porque disfruto mucho del arte del cine y la idea principal es lograr que funcione completamente con cada detalle adicional que sume.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

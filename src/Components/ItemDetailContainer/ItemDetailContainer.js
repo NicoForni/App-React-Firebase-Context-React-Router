@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getItem } from "../../asyncmock";
+import { getItem } from "../../Services/firebaseServices";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import "./ItemDetailContainer.css";
 import { useParams } from "react-router-dom";
