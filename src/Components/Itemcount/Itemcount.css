@@ -1,8 +1,33 @@
+.contenedor-botones{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
 .boton-contador{
     padding: 5px;
     margin: 5px;
-    width: 25px;
-    border-radius: 5px;
+    width: 32px;
     background-color: red;
+    border-radius: 9px;
     color: white;
+}
+
+.cantidad{
+    color: #2775a2;
+    font-size: 24px;
+    font-weight: 900;
+    text-shadow: 1px 1px 0px #03253a;
+}
+
+
+.boton-agregar{
+    padding: 1%;
+    border-radius: 8px;
+    color: white;
+    background-color: transparent;
+    background-image: linear-gradient(93deg, #175980, #0c3a57);
+    box-shadow: 1px 1px 3px 2px rgb(0 0 0 / 27%);
+    cursor: pointer;
 }

@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { getItem } from "../../Services/firebaseServices";
+import { getItem } from "../../services/firebaseServices";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import "./ItemDetailContainer.css";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
     
-    const [products, setProducts] =  useState([]);
+    const [product, setProduct] =  useState([]);
     const {productId} = useParams();    
 
     useEffect(() => {
-        getItem(productId).then(products => {setProducts(products)})
+        getItem(productId).then(product => {setProduct(product)})
         .catch(err => { console.log(err)})
-        return (() => { setProducts() })
-    }, [])
+        return (() => { setProduct() })
+    }, [productId])
     
-    return(
-        <>
-        <ItemDetail movie={products} />
-        </>
-    ) 
+    return (        
+        <ItemDetail movie={product} />      
+    )
+     
 }
 
 export default ItemDetailContainer;

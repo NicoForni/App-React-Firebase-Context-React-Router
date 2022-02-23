@@ -1,7 +1,12 @@
 import React from "react";
 import "./ItemDetail.css";
+import Itemcount from "../Itemcount/Itemcount";
 
 const ItemDetail = ({movie}) => {
+    
+    const onAdd = (count) => {        
+        count > 0 ? console.log(`Agrego ${count} items al carrito`) : console.log(`No agrego nada!`);
+    }
     
     return(      
         <div className="contenedor-columna-detail">
@@ -15,6 +20,7 @@ const ItemDetail = ({movie}) => {
                     <div className="description-detail">{movie.description}</div>
                     <br/>
                     <div className="price-detail">${movie.price}</div>
+                    <Itemcount stock={5} initial={1} onAdd={onAdd} />
                 </div> 
             </div>
         </div>
