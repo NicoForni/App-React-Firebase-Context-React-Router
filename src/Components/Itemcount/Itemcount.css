@@ -12,6 +12,7 @@
     background-color: red;
     border-radius: 9px;
     color: white;
+    cursor: pointer;
 }
 
 .cantidad{

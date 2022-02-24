@@ -24,7 +24,9 @@ const Navbar = () => {
                 </div>
                 <input className="buscadorcito" id="buscador" type="text" placeholder="Escriba un film"></input>
                 <button className="botoncito" id="boton" type="submit">Buscar...</button>
-                <CartWidget/>
+                <NavLink to="/cart">
+                    <CartWidget/>
+                </NavLink> 
             </ul>
         </nav>
     )
