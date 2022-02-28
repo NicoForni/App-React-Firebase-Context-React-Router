@@ -21,9 +21,7 @@ const Navbar = () => {
                 <NavLink to={"/category/documental"}className={({isActive})=>isActive ? "active-option" : null}>
                     <li>Documentales</li>
                 </NavLink>
-                </div>
-                <input className="buscadorcito" id="buscador" type="text" placeholder="Escriba un film"></input>
-                <button className="botoncito" id="boton" type="submit">Buscar...</button>
+                </div>                
                 <NavLink to="/cart">
                     <CartWidget/>
                 </NavLink> 
