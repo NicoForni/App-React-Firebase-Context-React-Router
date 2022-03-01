@@ -15,12 +15,13 @@ export const CartContextProvider = ({children}) => {
     };
 
     const isInCart = (id) => {
-         cart.some((product) => product.id === id);
-        
+        const validate = cart.some((product) => product.id === id);
+        return validate;
     }
 
     const sumarCantidad = (id, quantity) => {
         cart.map((product) => product.id === id && (product.quantity += quantity)); //si el producto es igual product.id ENTONCES sumame la cantidad
+        
     }
 
     const clearItems = () => {
