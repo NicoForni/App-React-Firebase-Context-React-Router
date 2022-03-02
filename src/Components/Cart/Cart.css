@@ -1,3 +1,56 @@
+.cart{
+    font-size: 42px;
+    font-weight: 500;
+    color: white;
+}
+
 .carrito{
     color: white;
+}
+
+.eliminar-producto{    
+    margin: 17px;
+    cursor: pointer;
+    padding: 2px;
+    color: white;
+    background-color: red;
+    font-weight: 600;
+}
+
+.vaciar-carrito{
+    padding: 6px;
+    color: rgb(255, 255, 255);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    background-image: linear-gradient(93deg, #175980, #0c3a57);
+    box-shadow: 1px 1px 3px 2px rgb(0 0 0 / 27%); 
+}
+
+.finalizar-compra{
+    margin: 5px;
+    padding: 6px;
+    color: rgb(255, 255, 255);    
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    background-image: linear-gradient(93deg, #54941a, #1d4a0b);
+    box-shadow: 1px 1px 3px 2px rgb(0 0 0 / 27%); 
+}
+
+.sin-productos{
+    color: white;
+    font-size: 30px;
+    margin-top: 22px;
+}
+
+.volver-inicio{
+    padding: 6px;
+    margin: 12px;
+    color: rgb(255, 255, 255);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    background-image: linear-gradient(93deg, #175980, #0c3a57);
+    box-shadow: 1px 1px 3px 2px rgb(0 0 0 / 27%); 
 }
