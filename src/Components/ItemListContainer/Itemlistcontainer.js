@@ -13,26 +13,18 @@ const Itemlistcontainer = ({greeting}) => {
     const [loading, setLoading] = useState(true);  
     const {categoryId} = useParams();      
 
-    useEffect(() =>{        
+    useEffect(() =>{
+        setLoading(true);
 
-        const collectionRef = categoryId ?
-        query(collection(firestoreDatabase, 'products'), where('category', '==', categoryId))
-        :
-        collection(firestoreDatabase, "products")
-        
-        getDocs(collectionRef).then(response => {
-            const products = response.docs.map(doc => {                
-                return {id: doc.id, ...doc.data()}
-            })
-            setProducts(products);
-        }) 
-        .finally(() => {
-            setLoading(false)
+        const productsCollectionRef = collection(firestoreDatabase, "products")
+
+        getDocs(productsCollectionRef).then(response => {
+            console.log(response);
         })
-        
-        return (()=> {
-            setProducts()                    
-        })        
+
+        return (() => {
+            setProducts(products)            
+        })
     }, [categoryId])
 
     
