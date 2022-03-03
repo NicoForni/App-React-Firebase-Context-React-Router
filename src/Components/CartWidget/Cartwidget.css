@@ -5,13 +5,20 @@
   .carrito-contenedor {
     margin-top: auto;
     margin-bottom: auto;
-    padding: 22px;
+    padding: 38px;
     color: white;
     font-size: 22px;
   }
   
   .carrito-contenedor img {
     height: 44px;
+  }
+  
+  .cantidad-agregada{
+    background-color: #042539;
+    border-radius: 30px;
+    padding: 1px 10px;
+    font-weight: 500;
   }
 
 /*==========EMPIEZA ADAPTACION RESPONSIVE========*/
