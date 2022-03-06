@@ -13,7 +13,6 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         
-        setLoading(true)
 
         const docRef = doc(firestoreDatabase, "products", productId)
 
@@ -22,14 +21,16 @@ const ItemDetailContainer = () => {
             setProduct(product)
         })
         .finally(()=>{
-            setProduct()
+            
         })
 
-        return (() => { setProduct() })
+        return (() => { 
+            setProduct() 
+        })
     }, [productId])
     
     return (        
-        <ItemDetail movie={product} />      
+        <ItemDetail movie={product} />   
     )
      
 }

@@ -35,14 +35,18 @@ export const CartContextProvider = ({children}) => {
     }
 
     const getQuantity = () => {
-        //CART.REDUCE PROBAR
+        let quantity = 0
+        cart.forEach(product => {            
+            quantity = quantity + product.quantity
+        });
+        return quantity
     }
 
     const getTotal = () => {
-        const countArray = cart.map(product => product.price*product.quantity);
+        const countCart = cart.map(product => product.price * product.quantity);
         
-        if(countArray.length){
-            return countArray.reduce((acc, item) => acc += item);
+        if(countCart.length){
+            return countCart.reduce((item, movie) => item = item + movie);
         } else {
             return 0;
         }

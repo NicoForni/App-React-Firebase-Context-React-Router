@@ -4,15 +4,18 @@ import "./Cartwidget.css";
 
 const Cartwidget = () => {
 
-    const {getQuantity} = useContext(CartContext);
+    const {getQuantity, cart} = useContext(CartContext);
+    
 
     return(
         
+        <>
+        {cart.length === 0 ? null :
         <div className="carrito-contenedor">
-            <img src={"./images/carrito.png"} alt={"Carrito Icono"}></img>
-            <p>{getQuantity()}item</p>
-        </div>
-    
+            <img src="./images/carrito.png" alt="Carrito Icono"></img>
+            <span className="cantidad-agregada">{getQuantity()}</span>
+        </div>}
+        </>
     )
 }
 

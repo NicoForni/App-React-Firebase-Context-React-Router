@@ -1,35 +1,42 @@
 .contenedor-de-carrito {
-    text-align: center;
-  }
-  
-  .carrito-contenedor {
-    margin-top: auto;
-    margin-bottom: auto;
-    padding: 22px;
-    color: white;
-    font-size: 22px;
-  }
-  
-  .carrito-contenedor img {
-    height: 44px;
-  }
+  text-align: center;
+}
+
+.carrito-contenedor {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 38px;
+  color: white;
+  font-size: 22px;
+}
+
+.carrito-contenedor img {
+  height: 44px;
+}
+
+.cantidad-agregada{
+  background-color: #042539;
+  border-radius: 30px;
+  padding: 1px 10px;
+  font-weight: 500;
+}
 
 /*==========EMPIEZA ADAPTACION RESPONSIVE========*/
 
 @media (max-width: 960px) {
-    #contenedor-columna {
-      display: flex;
-      justify-content: space-around;
-      padding: 3px 2px;
-    }
+  #contenedor-columna {
+    display: flex;
+    justify-content: space-around;
+    padding: 3px 2px;
   }
-  
-  @media (max-width: 960px) {
-    .carrito-contenedor {
-      display: inline;
-      position: relative;
-      top: 15px;
-      padding: 2%;
-    }
+}
+
+@media (max-width: 960px) {
+  .carrito-contenedor {
+    display: inline;
+    position: relative;
+    top: 15px;
+    padding: 2%;
   }
+}
   
