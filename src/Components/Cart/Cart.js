@@ -8,8 +8,10 @@ const Cart = () => {
     const {cart, removeProduct, clearItems, getTotal} = useContext(CartContext);
 
     if (cart.length === 0) {
-        return <> <div className="sin-productos">No agregaste nada 😞</div>
-        <Link to="/"><button className="volver-inicio">VOLVER A HOME</button></Link> </>
+        return  <> 
+                    <div className="sin-productos">No agregaste nada 😞</div>
+                    <Link to="/"><button className="volver-inicio">VOLVER A HOME</button></Link> 
+                </>
     }
 
     return (

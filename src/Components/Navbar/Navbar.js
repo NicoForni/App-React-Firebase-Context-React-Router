@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav>
             <ul className="nav-menu">
                 <NavLink to={"/"}>                    
-                    <img className="logo" src={"./images/logo-cine.svg"} alt={"logo"} width="" height=""></img>
+                    <img className="logo" src={"/images/logo-cine.svg"} alt={"logo"} width="" height=""></img>
                 </NavLink>
                 <div className="texto-de-menu">
                 <NavLink to={"/category/pelicula"} className={({isActive})=>isActive ? "active-option" : null}>

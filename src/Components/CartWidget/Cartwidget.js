@@ -12,7 +12,7 @@ const Cartwidget = () => {
         <>
         {cart.length === 0 ? null :
         <div className="carrito-contenedor">
-            <img src="./images/carrito.png" alt="Carrito Icono"></img>
+            <img src="/images/carrito.png" alt="Carrito Icono"></img>
             <span className="cantidad-agregada">{getQuantity()}</span>
         </div>}
         </>
