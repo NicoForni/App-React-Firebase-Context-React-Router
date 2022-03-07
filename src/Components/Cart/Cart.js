@@ -19,8 +19,8 @@ const Cart = () => {
             <div className="cart">Carrito</div>
                 <div className="carrito">
                     {cart.map((movie) => (
-                        <div>
-                            <li key={movie.id}> {movie.quantity} "{movie.name}" ${movie.price}                                                         
+                        <div key={movie.id}>
+                            <li> {movie.quantity} "{movie.name}" ${movie.price}                                                         
                                 <button className="eliminar-producto" onClick={() => removeProduct(movie.id)}>
                                     X
                                 </button>
