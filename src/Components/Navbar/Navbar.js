@@ -3,7 +3,6 @@ import "./Navbar.css";
 import CartWidget from "../CartWidget/Cartwidget";
 import { NavLink } from "react-router-dom";
 
-
 const Navbar = () => {
     return(
         <nav>
@@ -13,7 +12,7 @@ const Navbar = () => {
                 </NavLink>
                 <div className="texto-de-menu">
                 <NavLink to={"/category/pelicula"} className={({isActive})=>isActive ? "active-option" : null}>
-                    <li>Peliculas</li>
+                    <li>Películas</li>
                 </NavLink>
                 <NavLink to={"/category/serie"}className={({isActive})=>isActive ? "active-option" : null}>
                     <li>Series</li>
