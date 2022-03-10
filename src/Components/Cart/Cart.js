@@ -14,6 +14,19 @@ const Cart = () => {
                 </>
     }
 
+
+    const objOrder = {
+        buyer: { 
+            name: "Nico",
+            phone: "1414",
+            mail: "nico@gmail.com"
+        },
+            items: cart,
+            total : getTotal(),
+            date: new Date()
+        }
+        //console.log(objOrder);    
+
     return (
         <div>
             <div className="cart">Carrito</div>

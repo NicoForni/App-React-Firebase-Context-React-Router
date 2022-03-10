@@ -6,12 +6,13 @@ import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailCont
 import Cart from "./Components/Cart/Cart";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {CartContextProvider} from "./context/CartContext";
-
+import {NotificationServicesProvider} from "./services/notification/NotificationServices";
 
 
 function App() {
   return (
-    <div className="App">
+    <div className="App">   
+    <NotificationServicesProvider>
       <CartContextProvider>
         <BrowserRouter>
           <Navbar />
@@ -23,6 +24,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </CartContextProvider>  
+    </NotificationServicesProvider>     
     </div>
   );
 }

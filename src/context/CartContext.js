@@ -21,7 +21,13 @@ export const CartContextProvider = ({children}) => {
     }
 
     const sumarCantidad = (id, quantity) => {
-        cart.map((product) => product.id === id && (product.quantity += quantity)); //si el producto es igual a product.id ENTONCES sumame la cantidad
+        let newCart = cart.map ((product) => {
+            if (product.id === id) {
+                product.quantity += quantity;
+            }
+            return product
+        });
+        setCart(newCart) 
         
     }
 

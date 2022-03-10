@@ -1,10 +1,10 @@
 import "./itemlistcontainer.css";
 import React, { useEffect, useState } from "react";
-//import { getByCategory } from "../../services/firebaseServices";
 import Itemlist from "../Itemlist/Itemlist";
 import { useParams } from "react-router-dom";
 import {getDocs, collection, query, where} from "firebase/firestore";
 import { firestoreDatabase } from "../../services/firebase/firebase";
+import { useNotificationServices } from "../../services/notification/NotificationServices";
 
 
 const Itemlistcontainer = ({greeting}) => {
@@ -13,7 +13,11 @@ const Itemlistcontainer = ({greeting}) => {
     const [loading, setLoading] = useState(true);  
     const {categoryId} = useParams();      
 
+    const setNotification = useNotificationServices()
+
     useEffect(() =>{     
+        setNotification("success", "Bienvenido a Clasic Cinema!")
+
         setLoading(true)   
 
         const collectionRef = categoryId ?
