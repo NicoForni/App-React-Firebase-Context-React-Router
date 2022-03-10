@@ -4,19 +4,19 @@ import Itemlist from "../Itemlist/Itemlist";
 import { useParams } from "react-router-dom";
 import {getDocs, collection, query, where} from "firebase/firestore";
 import { firestoreDatabase } from "../../services/firebase/firebase";
-import { useNotificationServices } from "../../services/notification/NotificationServices";
+//import { useNotificationServices } from "../../services/notification/NotificationServices";
 
 
-const Itemlistcontainer = ({greeting}) => {
+const Itemlistcontainer = () => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);  
     const {categoryId} = useParams();      
 
-    const setNotification = useNotificationServices()
+    //const setNotification = useNotificationServices()
 
     useEffect(() =>{     
-        setNotification("success", "Bienvenido a Clasic Cinema!")
+        //setNotification("success", "Bienvenido a Clasic Cinema!")
 
         setLoading(true)   
 
@@ -42,8 +42,7 @@ const Itemlistcontainer = ({greeting}) => {
 
     
     return (    
-        <>
-        <h1>{greeting}</h1>                  
+        <>        
         <Itemlist products={products}/>
         <div className="loading">{loading && <p>Loading products...</p>}</div>
         </>

@@ -13,7 +13,7 @@ const ItemDetail = ({movie}) => {
     const [loading, setLoading] = useState (true);
     const {productId} = useParams();   
     const {addToCart} = useContext(CartContext);
-    const {setNotification} = useNotificationServices()    
+    const setNotification = useNotificationServices()    
     
     const onAdd = (quantity) => {        
         

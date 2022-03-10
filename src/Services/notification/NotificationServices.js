@@ -1,6 +1,6 @@
 import "./NotificationServices.css"
 import { useState, createContext } from "react";
-import { useContext } from "react/cjs/react.production.min";
+import  { useContext } from "react";
 
 const Notification = ({message, severity}) => {
 
@@ -47,7 +47,7 @@ export const NotificationServicesProvider = ({children}) => {
         setSeverity(severity)
         setTimeout(() => {
             setMessage("")
-        }, 2000)
+        }, 4000)
     }
 
     return(
