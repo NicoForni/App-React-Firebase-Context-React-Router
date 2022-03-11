@@ -1,0 +1,54 @@
+.ContactContainer{
+    color: white;
+    font-size: 30px;
+    padding: 30px;
+}
+
+.ContactForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+.InputContact{
+    color: #a1c8e0;
+}
+
+.LabelContact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.InputContact {
+    border-style: none;
+    border-bottom: 2px solid #8C30F5;
+    width: 85vw;
+    height: 20px;
+    margin-top: 10px;
+    padding: 8px 5px;
+    background: transparent;
+    outline: none;
+}
+
+.InputContact:-webkit-autofill,
+.InputContact:-webkit-autofill:hover, 
+.InputContact:-webkit-autofill:focus, 
+.InputContact:-webkit-autofill:active  {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.Button-confimar{
+    padding: 6px;
+    margin: 14px;
+    color: rgb(255, 255, 255);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    background-image: linear-gradient(93deg, #54941a, #1d4a0b);
+    box-shadow: 1px 1px 3px 2px rgb(0 0 0 / 27%);
+}
