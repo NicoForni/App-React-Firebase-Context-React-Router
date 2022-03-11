@@ -51,7 +51,7 @@ const ItemDetail = ({movie}) => {
                             <div className="description-detail">{movie.description}</div>
                             <br/>
                             <div className="price-detail">${movie.price}</div>
-                            {quantity > 0 ? <Link to="/cart"><button className="boton-carrito">FINALIZAR</button></Link> : <Itemcount stock={5} initial={1} onAdd={onAdd}/>}
+                            {quantity > 0 ? <Link to="/cart"><button className="boton-carrito">FINALIZAR</button></Link> : <Itemcount stock={movie.stock} initial={1} onAdd={onAdd}/>}
                         </div> 
                     </>
                 }

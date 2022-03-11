@@ -14,13 +14,13 @@ const Cart = () => {
     const contactFormRef = useRef()
     const [processingOrder, setProcessingOrder] = useState(false)
     const setNotification = useNotificationServices()
-    //const [order, setOrders] = useState([])
+    
     const [contact, setContact]= useState({
         name: "",
         phone: "",
         address: "",
         comment: "",
-    })
+    });
 
 
     if (cart.length === 0) {
@@ -37,50 +37,55 @@ const Cart = () => {
              setProcessingOrder(true)
         
         const objOrder = {
-            buyer: { name: "Nico",phone: "1414", mail: "nico@gmail.com"},
+                buyer: contact,
                 items: cart,
                 total : getTotal(),
                 date: Timestamp.fromDate(new Date())
-            }
+            };
 
-            const batch = writeBatch(firestoreDatabase)
-            const outOfStock = []
+            const batch = writeBatch(firestoreDatabase);
+            const outOfStock = [];
             
             const executeOrder = () => {
+                if(outOfStock.length === 0) {
+                    addDoc(collection(firestoreDatabase, 'orders'), objOrder).then(({id}) => {
+                        batch.commit().then(() => {
+                            clearItems()
+                            setNotification('success', `Su numero de orden es: ${id}`)
+                        })
+                    }).catch(error => {
+                        setNotification('error', error)
+                    }).finally(() => {
+                        setProcessingOrder(false)
+                    })
+                } else {
+                    outOfStock.forEach(prod => {
+                        setNotification('error', `El producto ${prod.name} no tiene stock disponible`)
+                        removeProduct(prod.id)
+                    })          
+                }
+            }
+
             objOrder.items.forEach(prod => {
-                getDoc(doc(firestoreDatabase, "products", prod.id)).then(response => {
+                getDoc(doc(firestoreDatabase, 'products', prod.id)).then(response => {
                     if(response.data().stock >= prod.quantity) {
-                        batch.update(doc(firestoreDatabase, "products", response.id), {
+                        batch.update(doc(firestoreDatabase, 'products', response.id), {
                             stock: response.data().stock - prod.quantity
                         })
+                    } else {
+                        outOfStock.push({ id: response.id, ...response.data()})    
                     }
-                    else {
-                        outOfStock.push({id: response.id, ...response.data()})
-                    }
-                })
-            })
-        }
-
-            if (outOfStock.length === 0){
-                addDoc(collection(firestoreDatabase, "orders"), objOrder).then(({id}) => {
-                    batch.commit().then(() => {
-                        setNotification("success", `Su numero de orden es: ${id}`)    
-                        clearItems()                                      
-                    })
-                })
-                .catch(error => {
-                    setNotification("error", error)
-                })
-                .then(() => {
+                }).catch((error) => {
+                    console.log(error)
+                }).then(() => {
                     executeOrder()
-                })
-                .finally(() => {
+                }).finally(() => {
                     setProcessingOrder(false)
                 })
-            } 
-            else {
-                setNotification('error', 'Debe completar los datos de contacto para generar la orden')
-            }
+            })
+            
+        } else {
+            setNotification('error', 'Debe completar los datos de contacto para generar la orden')
         }
     }
         
