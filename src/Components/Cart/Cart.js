@@ -76,7 +76,7 @@ const Cart = () => {
                         outOfStock.push({ id: response.id, ...response.data()})    
                     }
                 }).catch((error) => {
-                    console.log(error)
+                    setNotification('error', error)
                 }).then(() => {
                     executeOrder()
                 }).finally(() => {
