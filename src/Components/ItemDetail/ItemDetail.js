@@ -3,10 +3,10 @@ import "./ItemDetail.css";
 import Itemcount from "../Itemcount/Itemcount";
 import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import { useNotificationServices } from "../../services/notification/NotificationServices";
+import { useNotificationServices } from "../../Services/notification/NotificationServices";
 
 import {getDoc, doc}from "firebase/firestore";
-import { firestoreDatabase } from "../../services/firebase/firebase";
+import { firestoreDatabase } from "../../Services/firebase/firebase";
 
 const ItemDetail = ({movie}) => {
     const [quantity, setQuantity] = useState(0);

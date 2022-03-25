@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import Itemlist from "../Itemlist/Itemlist";
 import { useParams } from "react-router-dom";
 import {getDocs, collection, query, where} from "firebase/firestore";
-import { firestoreDatabase } from "../../services/firebase/firebase";
-import { useNotificationServices } from "../../services/notification/NotificationServices";
+import { firestoreDatabase } from "../../Services/firebase/firebase";
+import { useNotificationServices } from "../../Services/notification/NotificationServices";
 
 
 const Itemlistcontainer = () => {

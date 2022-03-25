@@ -2,11 +2,11 @@ import React, { useState, useContext, useRef} from "react";
 import { CartContext } from "../../context/CartContext";
 import Togglable from '../Togglable/Togglable';
 import ContactForm from '../ContactForm/ContactForm';
-import { useNotificationServices } from "../../services/notification/NotificationServices";
+import { useNotificationServices } from "../../Services/notification/NotificationServices";
 import "./Cart.css";
 import { Link } from "react-router-dom";
 import { writeBatch, Timestamp, getDoc, doc, collection, addDoc } from "firebase/firestore";
-import { firestoreDatabase } from "../../services/firebase/firebase";
+import { firestoreDatabase } from "../../Services/firebase/firebase";
 
 
 const Cart = () => {
@@ -98,22 +98,19 @@ const Cart = () => {
     
     return (
         <div>
-            <div className="cart">Carrito</div>
-                <div className="carrito">
+            <div className="cart">Carrito</div>                                       
+                <div className="carrito">                    
                     {cart.map((movie) => (
                         <div key={movie.id}>
                             <li> {movie.quantity} "{movie.name}" ${movie.price}                                                         
-                                <button className="eliminar-producto" onClick={() => removeProduct(movie.id)}>
-                                    X
-                                </button>
+                                <button className="eliminar-producto" onClick={() => removeProduct(movie.id)}>X</button>
                             </li>
                         </div>
                     ))} 
                     <div className="total">TOTAL: ${getTotal()}</div>
                     <button className="vaciar-carrito" onClick={() => clearItems()}>VACIAR CARRITO</button>
                     <button className="finalizar-compra" onClick={() => confirmOrder()}>CONFIRMAR COMPRA</button>                    
-                    {(contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') &&
-                
+                    {(contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') &&                
                         <div>
                             <h4>Nombre: {contact.name}</h4>
                             <h4>Telefono: {contact.phone}</h4>
