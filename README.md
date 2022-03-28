@@ -1,14 +1,10 @@
 # Movies Market ✨
 
-## Informacion de este proyecto:
+## Información de este proyecto:
 
 Web app que carga un catálogo de productos hecho en [Firebase](https://firebase.google.com/).
 
 ![Alt proyecto](2022-03-28-17-38-34_1.gif)
-
-## Informacion de este proyecto:
-
-#####  Web app que carga un catálogo de productos hecho en [Firebase](https://firebase.google.com/).
 
 ## 
 
