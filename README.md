@@ -1,72 +1,62 @@
-Este proyecto lo elijo porque disfruto mucho del arte del cine y la idea principal es lograr que funcione completamente con cada detalle adicional que sume.
+# Movies Market ✨
 
-# Getting Started with Create React App
+## Informacion de este proyecto:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Web app que carga un catálogo de productos hecho en [Firebase](https://firebase.google.com/).
 
-## Available Scripts
+![Alt proyecto](2022-03-28-17-38-34_1.gif)
 
-In the project directory, you can run:
+## Informacion de este proyecto:
 
-### `npm start`
+#####  Web app que carga un catálogo de productos hecho en [Firebase](https://firebase.google.com/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Hecho con
 
-### `npm test`
+- [React](https://reactjs.org/)
+- [Create React App](https://create-react-app.dev/)
+- [CSS](https://developer.mozilla.org/es/docs/Web/CSS)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 
 
-### `npm run build`
+## Dependencias
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[ReactRouter](https://reactrouter.com/docs/en/v6) Utilizo esta librería para crear rutas que rendericen diferentes componentes. Facilita la navegabilidad y le concede un enrutamiento dinámico a la aplicación.
+[Firebase](https://firebase.google.com/) Utilizo esta librería para conectar con la base de datos de Firebase.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Ejecucion local
 
-### `npm run eject`
+#####  1.Abrir una nueva terminal y clonar el repositorio con el siguiente comando:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+git clone https://github.com/NicoForni/app-nico.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#####  2.Desde la terminal nos ubicamos en la carpeta raíz del proyecto e instalamos todas las dependencias con el comando:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 
 
-## Learn More
+```sh
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#####  3.Por último corremos nuestro proyecto con el comando:
 
-### Code Splitting
+## 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```sh
+npm start
+```
 
-### Analyzing the Bundle Size
+## Información sobre desarrollo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**- Main ("/"):** Renderiza las imágenes de productos destacados, un container para acceder a las distintas categorías y otro con todos los productos existentes en la base de datos.
+**- Category ("/category/:categoryId"):** Renderiza los productos filtrados en base a su categoría.
+**- Item ("/detail/:productId"):** Renderiza una card con los detalles del producto seleccionado (nombre, descripción, imágen, stock).
+**- Cart ("/cart"):** Renderiza el carrito de compras con los productos agregados por el usuario.
