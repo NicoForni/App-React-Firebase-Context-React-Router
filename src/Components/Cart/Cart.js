@@ -5,7 +5,7 @@ import ContactForm from '../ContactForm/ContactForm';
 import { useNotificationServices } from "../../Services/notification/NotificationServices";
 import "./Cart.css";
 import { Link } from "react-router-dom";
-import { writeBatch, Timestamp, getDoc, doc, collection, addDoc } from "firebase/firestore";
+import { writeBatch, getDocs, collection, addDoc, Timestamp, where, query, documentId } from "firebase/firestore";
 import { firestoreDatabase } from "../../Services/firebase/firebase";
 
 
@@ -13,23 +13,18 @@ const Cart = () => {
     const {cart, removeProduct, clearItems, getTotal} = useContext(CartContext);
     const contactFormRef = useRef()
     const [processingOrder, setProcessingOrder] = useState(false)
-    const setNotification = useNotificationServices()
-    
+    const [orderFinished, setOrderFinished] = useState(false);
+    const [codeNumberOrder, setCodeNumberOrder] = useState("");
+
+    const setNotification = useNotificationServices()           
+
     const [contact, setContact]= useState({
         name: "",
         phone: "",
         address: "",
         comment: "",
     });
-
-
-    if (cart.length === 0) {
-        return  <> 
-                    <div className="sin-productos">Tu carrito está vacío 😞</div>
-                    <Link to="/"><button className="volver-inicio">VOLVER A HOME</button></Link> 
-                </>
-    }
-
+  
     
     
     const confirmOrder = () => {
@@ -45,57 +40,71 @@ const Cart = () => {
 
             const batch = writeBatch(firestoreDatabase);
             const outOfStock = [];
+            const ids = objOrder.items.map(i => i.id)
             
-            const executeOrder = () => {
-                if(outOfStock.length === 0) {
-                    addDoc(collection(firestoreDatabase, 'orders'), objOrder).then(({id}) => {
-                        batch.commit().then(() => {
-                            clearItems()
-                            setNotification('success', `Su numero de orden es: ${id}`)
-                        })
-                    }).catch(error => {
-                        setNotification('error', error)
-                    }).finally(() => {
-                        setProcessingOrder(false)
+            getDocs(query(collection(firestoreDatabase, 'products'),where(documentId(), 'in', ids)))
+                .then(response => {
+                    response.docs.forEach((docSnapshot) => {
+                        if(docSnapshot.data().stock >= objOrder.items.find(prod => prod.id === docSnapshot.id).quantity) {
+                            batch.update(docSnapshot.ref, { stock: docSnapshot.data().stock - objOrder.items.find(prod => prod.id === docSnapshot.id).quantity})
+                        } 
+                        else 
+                        {
+                            outOfStock.push({id: docSnapshot.id, ...docSnapshot.data()})
+                        }
                     })
-                } else {
-                    outOfStock.forEach(prod => {
-                        setNotification('error', `El producto ${prod.name} no tiene stock disponible`)
-                        removeProduct(prod.id)
-                    })          
-                }
-            }
-
-            objOrder.items.forEach(prod => {
-                getDoc(doc(firestoreDatabase, 'products', prod.id)).then(response => {
-                    if(response.data().stock >= prod.quantity) {
-                        batch.update(doc(firestoreDatabase, 'products', response.id), {
-                            stock: response.data().stock - prod.quantity
+                }).then(() => {
+                    if(outOfStock.length === 0) {
+                        addDoc(collection(firestoreDatabase, 'orders'), objOrder).then(({id}) => { 
+                            batch.commit()
+                            clearItems()
+                            setNotification('success', `La orden se genero exitosamente`)                               
+                            setOrderFinished(true);  
+                            setCodeNumberOrder(id);                                                          
                         })
-                    } else {
-                        outOfStock.push({ id: response.id, ...response.data()})    
-                    }
+                    } 
+                    else 
+                        {
+                        outOfStock.forEach(prod => {
+                            setNotification('error', `El producto ${prod.name} no tiene stock disponible`)
+                            clearItems(prod.id)
+                        })    
+                    }               
                 }).catch((error) => {
                     setNotification('error', error)
-                }).then(() => {
-                    executeOrder()
                 }).finally(() => {
                     setProcessingOrder(false)
                 })
-            })
             
-        } else {
+        } 
+        else 
+        {
             setNotification('error', 'Debe completar los datos de contacto para generar la orden')
         }
     }
         
-    
-    
-    
-        if(processingOrder) {
-            return <h1>Se esta procesando su orden</h1>
-        }
-    
+    if(processingOrder) {
+        return <h1>Se esta procesando su orden</h1>
+    }        
+
+
+    if (cart.length === 0 && orderFinished === false) {
+        return  <> 
+                    <div className="sin-productos">Tu carrito está vacío 😞</div>
+                    <Link to="/"><button className="volver-inicio">VOLVER A HOME</button></Link> 
+                </>
+    }   
+    else if (orderFinished === true) {
+       return  <div>
+                    <h2 style={{color:"white"}}>Su número de orden es:</h2>
+                    {codeNumberOrder !== "" && (
+                    <h3 style={{color:"white"}}>{codeNumberOrder}</h3>
+                    )}
+                    <Link to="/"><button className="volver-inicio">VOLVER A HOME</button></Link> 
+                </div>
+    } 
+
+
     return (
         <div>
             <div className="cart">Carrito</div>                                       
@@ -107,9 +116,9 @@ const Cart = () => {
                             </li>
                         </div>
                     ))} 
-                    <div className="total">TOTAL: ${getTotal()}</div>
+                    <div className="total">TOTAL: ${getTotal()}</div>                    
                     <button className="vaciar-carrito" onClick={() => clearItems()}>VACIAR CARRITO</button>
-                    <button className="finalizar-compra" onClick={() => confirmOrder()}>CONFIRMAR COMPRA</button>                    
+                    <button className="finalizar-compra" onClick={() => confirmOrder()}>CONFIRMAR COMPRA</button>                             
                     {(contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') &&                
                         <div>
                             <h4>Nombre: {contact.name}</h4>
@@ -125,10 +134,9 @@ const Cart = () => {
                 </div>
 
             <Togglable buttonLabelShow={
-                        (contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') 
-                            ? 'Editar contacto' 
-                            : 'Agregar contacto'
-                        } 
+                (contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') ? 
+                    'Editar contacto' : 'Formulario'
+                } 
                         ref={contactFormRef}>
                 <ContactForm toggleVisibility={contactFormRef} setContact={setContact} />
             </Togglable>                  

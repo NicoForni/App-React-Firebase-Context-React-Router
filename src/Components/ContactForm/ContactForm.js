@@ -32,6 +32,10 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
               <input
                 className='InputContact'
                 type='text'
+                required
+                placeholder='Introduce tu nombre'
+                title='Solo en minuscula-Maximo 15 caracteres'
+                pattern="[a-z]{1,15}"
                 value={name}
                 onChange={({ target }) => setName(target.value)}
               />
@@ -39,7 +43,10 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
             <label className='LabelContact'>Teléfono:
               <input
                 className='InputContact'
-                type='text'
+                type='tel'
+                required pattern='[0-9]{8}'
+                placeholder='Introduce tu telefono'
+                title='Deben ser 8 digitos'
                 value={phone}
                 onChange={({ target }) => setPhone(target.value)}
               />
@@ -47,7 +54,9 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
             <label className='LabelContact'>Dirección:
               <input
                 className='InputContact'
-                type='text'
+                type='text'                
+                required
+                placeholder='Introduce tu direccion'                
                 value={address}
                 onChange={({ target }) => setAddress(target.value)}
               />
@@ -56,6 +65,8 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
               <input
                 className='InputContact'
                 type='text'
+                required
+                placeholder='Introduce tu comentario'
                 value={comment}
                 onChange={({ target }) => setComment(target.value)}
               />

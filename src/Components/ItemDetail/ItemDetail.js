@@ -4,7 +4,6 @@ import Itemcount from "../Itemcount/Itemcount";
 import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { useNotificationServices } from "../../Services/notification/NotificationServices";
-
 import {getDoc, doc}from "firebase/firestore";
 import { firestoreDatabase } from "../../Services/firebase/firebase";
 
