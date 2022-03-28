@@ -23,6 +23,7 @@ Web app que carga un catálogo de productos hecho en [Firebase](https://firebase
 ## Dependencias
 
 [ReactRouter](https://reactrouter.com/docs/en/v6) Utilizo esta librería para crear rutas que rendericen diferentes componentes. Facilita la navegabilidad y le concede un enrutamiento dinámico a la aplicación.
+
 [Firebase](https://firebase.google.com/) Utilizo esta librería para conectar con la base de datos de Firebase.
 
 ## 
