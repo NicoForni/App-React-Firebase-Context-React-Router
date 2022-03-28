@@ -57,6 +57,9 @@ npm start
 ## Información sobre desarrollo
 
 **- Main ("/"):** Renderiza las imágenes de productos destacados, un container para acceder a las distintas categorías y otro con todos los productos existentes en la base de datos.
+
 **- Category ("/category/:categoryId"):** Renderiza los productos filtrados en base a su categoría.
+
 **- Item ("/detail/:productId"):** Renderiza una card con los detalles del producto seleccionado (nombre, descripción, imágen, stock).
+
 **- Cart ("/cart"):** Renderiza el carrito de compras con los productos agregados por el usuario.
