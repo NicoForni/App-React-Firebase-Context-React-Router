@@ -1,4 +1,4 @@
-Este proyecto lo elijo porque disfruto mucho del arte del cine y la idea principal es lograr que funcione completamente con cada detalle adicional que sume.
+Para ver la app en su version final, ir a la branch "FIREBASE"
 
 # Getting Started with Create React App
 
